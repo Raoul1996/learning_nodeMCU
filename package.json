@@ -1,0 +1,17 @@
+{
+  "name": "nodemcu_tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devices":"nodemcu-tool devices",
+    "show:port":"nodemcu-tool devices | grep '/dev/\\S*' -o",
+    "terminal":"nodemcu-tool devices | grep '/dev/\\S*' -o | awk '{if(NR>0) {printf \"-p %s \",$1}}' | xargs nodemcu-tool terminal",
+    "upload":"nodemcu-tool devices | grep '/dev/\\S*' -o | awk '{if(NR>0) {printf \"-p %s \",$1}}' | xargs nodemcu-tool upload ./lua_scripts/init.lua"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemcu-tool": "^3.0.2"
+  }
+}
